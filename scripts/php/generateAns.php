@@ -10,5 +10,7 @@ const SLOWA = array(3 => array("kot", "pies", "dom", "las", "miś", "dąb"),
     11 => array("miesiączka", "przedszkolak", "człowieczeństwo", "przyjacielski", "telewizyjny", "komputerowy"));
 
 function generateAns($wordLength):string{
-    return SLOWA[$wordLength][rand(0, count(SLOWA[$wordLength])-1)];
+    $slowaXliterowe = SLOWA[$wordLength];
+    $slowo = $slowaXliterowe[rand(0, count($slowaXliterowe)-1)];
+    return $slowo;
 }
