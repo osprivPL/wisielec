@@ -21,38 +21,37 @@
         $_SESSION["_actualAttempts"]++;
     }
 
-    if ($_SESSION['_actualAttempts'] > 0){
+    if ($_SESSION['_actualAttempts'] > 0) {
         $guess = $_POST["guess"];
-        if ($guess == ''){
+        if ($guess == '') {
             $_SESSION["_actualAttempts"]--;
-        }
-        else if (strlen($guess) > 1){
-            if($guess == $_SESSION["_correctAns"]){
+        } else if (strlen($guess) > 1) {
+            if ($guess == $_SESSION["_correctAns"]) {
                 $_SESSION["_actualString"] = $_SESSION["_correctAns"];
             }
-        }
-        else{
+        } else {
             $found = FALSE;
             $guess = strtolower($guess);
-            if
-            for ($i = 0; $i < strlen($_SESSION["_actualString"]); $i++) {
-                if ($_SESSION["_correctAns"][$i] == $guess){
-                    $_SESSION["_actualString"][$i] = $guess;
-                    $found = TRUE;
+            if (in_array($guess, $_SESSION["guessed"]) || in_array($guess, $_SESSION["wrong"])) {
+                $_SESSION["_actualAttempts"]--;
+            } else {
+                for ($i = 0; $i < strlen($_SESSION["_actualString"]); $i++) {
+                    if ($_SESSION["_correctAns"][$i] == $guess) {
+                        $_SESSION["_actualString"][$i] = $guess;
+                        $found = TRUE;
+                    }
                 }
-            }
-            if ($found){
-                $_SESSION["guessed"][] = $guess;
-            }
-            else{
-                $_SESSION["wrong"][] = $guess;
-            }
+                if ($found) {
+                    $_SESSION["guessed"][] = $guess;
+                } else {
+                    $_SESSION["wrong"][] = $guess;
+                }
 
+            }
+            $_POST["guess"] = '';
+            $guess = '';
         }
-        $_POST["guess"] = '';
-        $guess= '';
     }
-
     if ($_SESSION["_correctAns"] == $_SESSION["_actualString"]){
         $_SESSION["_win"] = 1;
     }
