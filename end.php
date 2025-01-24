@@ -27,7 +27,7 @@
         else{
             echo '<div class="message">PRZEGRANA!</div>';
         }
-        echo "<div class='message'>Poprawna odpowiedź:</div>";
+        echo "<div class='message'>Poprawna odpowiedź:".$_SESSION["_correctAns"]."</div>";
     ?>
 
 

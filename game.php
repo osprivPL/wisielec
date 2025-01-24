@@ -6,7 +6,7 @@
     require "scripts/php/printArr.php";
 
     if (!isset($_SESSION["_actualAttempts"])){
-        $wordLength = $_POST["howLong"];
+        $wordLength = intval($_POST["howLong"]);
         $_SESSION["_actualAttempts"] = -1;
         $_SESSION["_actualString"] = str_repeat("_", $wordLength);
         $_SESSION["_attempts"] = $_POST["attempts"];
@@ -15,7 +15,7 @@
     }
 
     if($_SESSION["_actualAttempts"] != $_SESSION["_attempts"]){
-//        $_SESSION["_actualAttempts"]++;
+        $_SESSION["_actualAttempts"]++;
     }
 
     if ($_SESSION['_actualAttempts'] > 0){
