@@ -16,18 +16,10 @@
         $_SESSION["_correctAns"] = generateAns($wordLength);
     }
 
-    if ($_SESSION["_correctAns"] == $_SESSION["_actualString"]){
-        $_SESSION["_win"] = 1;
-    }
 
-    if($_SESSION["_actualAttempts"] != $_SESSION["_attempts"]){
+    if($_SESSION["_actualAttempts"] != -20){
         $_SESSION["_actualAttempts"]++;
     }
-    if ($_SESSION["_attempts"] == $_SESSION["_actualAttempts"] || $_SESSION["win"] == 1){
-        header("Location: end.php");
-        exit();
-    }
-
 
     if ($_SESSION['_actualAttempts'] > 0){
         $guess = $_POST["guess"];
@@ -56,6 +48,15 @@
         }
         $_POST["guess"] = '';
         $guess= '';
+    }
+
+    if ($_SESSION["_correctAns"] == $_SESSION["_actualString"]){
+        $_SESSION["_win"] = 1;
+    }
+
+    if ($_SESSION["_attempts"] == $_SESSION["_actualAttempts"] || $_SESSION["win"] == 1){
+        header("Location: end.php");
+        exit();
     }
 ?>
 <html lang="pl">
@@ -101,5 +102,9 @@
         printArr($_SESSION);
     ?>
 </body>
-
+<script>
+    window.onload = function() {
+        document.getElementById('guess').focus();
+    };
+</script>
 </html>
