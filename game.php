@@ -6,6 +6,8 @@
     require "scripts/php/printArr.php";
 
     if (!isset($_SESSION["_actualAttempts"])){
+        $_SESSION["guessed"] = array();
+        $_SESSION["wrong"] = array();
         $wordLength = intval($_POST["howLong"]);
         $_SESSION["_actualAttempts"] = -1;
         $_SESSION["_actualString"] = str_repeat("_", $wordLength);
@@ -18,14 +20,33 @@
         $_SESSION["_actualAttempts"]++;
     }
 
+
     if ($_SESSION['_actualAttempts'] > 0){
         $guess = $_POST["guess"];
-        if (strlen($guess) > 1){
+        if ($guess == ''){
+            
+        }
+        else if (strlen($guess) > 1){
 
         }
         else{
+            $found = FALSE;
             $guess = strtolower($guess);
+            for ($i = 0; $i < strlen($_SESSION["_actualString"]); $i++) {
+                if ($_SESSION["_correctAns"][$i] == $guess){
+                    $_SESSION["_actualString"][$i] = $guess;
+                    $found = TRUE;
+                }
+            }
+            if ($found){
+                $_SESSION["guessed"][] = $guess;
+            }
+            else{
+                $_SESSION["wrong"][] = $guess;
+            }
+
         }
+        $guess= '';
     }
 
     if ($_SESSION["_attempts"]-1 == $_SESSION["_actualAttempts"] || $_SESSION["win"]){
@@ -54,8 +75,23 @@
                 }
                 echo '<br>';
             echo '</h3>';
-            echo '<input style="text-align: center" type="text" class="tbx" placeholder="Enter text here..." id="guess" name = "guess">';
+            echo '<input style="text-align: center" type="text" class="tbx" placeholder="Enter text here..." id="guess" name = "guess"><br>';
+            echo '<input type="submit" id="send" value="STRZEL">';
         echo '</form>';
+
+        echo '<div style = "clear:both"></div>';
+
+        if (count($_SESSION["guessed"]) > 0){
+            echo '<div class="message">POPRAWNE: ';
+                printArr($_SESSION["guessed"]);
+            echo '</div>';
+        }
+        if(count($_SESSION["wrong"]) > 0){
+            echo '<div class="message">NIEPOPRAWNE: ';
+                printArr($_SESSION["wrong"]);
+            echo '</div>';
+        }
+
         printArr($_SESSION);
     ?>
     
