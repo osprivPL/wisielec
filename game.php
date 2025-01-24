@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    error_reporting(E_ERROR | E_PARSE);
+//    error_reporting(E_ERROR | E_PARSE);
 
     require "scripts/php/generateAns.php";
     require "scripts/php/printArr.php";
@@ -27,11 +27,14 @@
             $_SESSION["_actualAttempts"]--;
         }
         else if (strlen($guess) > 1){
-
+            if($guess == $_SESSION["_correctAns"]){
+                $_SESSION["_actualString"] = $_SESSION["_correctAns"];
+            }
         }
         else{
             $found = FALSE;
             $guess = strtolower($guess);
+            if
             for ($i = 0; $i < strlen($_SESSION["_actualString"]); $i++) {
                 if ($_SESSION["_correctAns"][$i] == $guess){
                     $_SESSION["_actualString"][$i] = $guess;
@@ -54,7 +57,7 @@
         $_SESSION["_win"] = 1;
     }
 
-    if ($_SESSION["_attempts"] == $_SESSION["_actualAttempts"] || $_SESSION["win"] == 1){
+    if ($_SESSION["_attempts"] == $_SESSION["_actualAttempts"] || $_SESSION["_win"] == 1){
         header("Location: end.php");
         exit();
     }
