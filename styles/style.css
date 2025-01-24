@@ -27,3 +27,23 @@ body {
     font-size: 2em;
     margin-bottom: 20px;
 }
+
+.tbx {
+    width: 300px;
+    padding: 10px 15px;
+    border: 5px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.tbx-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tbx:focus {
+    border-color: #007BFF;
+}

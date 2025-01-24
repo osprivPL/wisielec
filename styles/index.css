@@ -1,40 +1,10 @@
-#howLong{
-    width: 100px;
-    padding: 10px;
-    margin: 10px 0;
-    border: 2px solid #338cff;
-    border-radius: 10px;
-    font-size: 18px;
-    text-align: center;
-    background-color: #f0f0f0;
-    color: #333;
-}
-#lblSurprise{
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-#lblSurprise input{
-    position:absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
 #lblSurprise :checked ~ #surprise{
     background-color: #2196F3;
 }
 #surprise{
-    position:absolute;
-    
-    height: 25px;
-    width: 25px;
     background-color: #eeeeee;
+    height: 25px;
+    margin-left: 5%;
+    width: 25px;
+
 }

@@ -3,12 +3,13 @@
     error_reporting(E_ERROR | E_PARSE);
 
     require "scripts/php/generateAns.php";
+    require "scripts/php/printArr.php";
 
     if (!isset($_SESSION["_actualAttempts"])){
         $wordLength = $_POST["howLong"];
         $_SESSION["_actualAttempts"] = -1;
         $_SESSION["_attempts"] = $_POST["attempts"];
-        $_SESSION["win"] = FALSE;
+        $_SESSION["_win"] = FALSE;
         $_SESSION["_correctAns"] = generateAns($wordLength);
     }
 
@@ -33,10 +34,12 @@
     <title>game</title>
 </head>
 <body>
-    <?php 
-        foreach ($_SESSION as $key => $value) {
-            echo $key . ": " . $value . "<br>";
-        }
+    <h1>WISIELEC</h1>
+    <?php
+        echo '<form>';
+            echo '<input type="text" id="tbx" placeholder="Enter text here...">';
+        echo '</form>';
+        printArr($_SESSION);
     ?>
     
 </body>
