@@ -24,7 +24,7 @@
     if ($_SESSION['_actualAttempts'] > 0){
         $guess = $_POST["guess"];
         if ($guess == ''){
-            
+            $_SESSION["_actualAttempts"]--;
         }
         else if (strlen($guess) > 1){
 
@@ -81,16 +81,18 @@
 
         echo '<div style = "clear:both"></div>';
 
-        if (count($_SESSION["guessed"]) > 0){
-            echo '<div class="message">POPRAWNE: ';
-                printArr($_SESSION["guessed"]);
-            echo '</div>';
-        }
-        if(count($_SESSION["wrong"]) > 0){
-            echo '<div class="message">NIEPOPRAWNE: ';
-                printArr($_SESSION["wrong"]);
-            echo '</div>';
-        }
+        
+        echo '<div class="message">';
+        echo '<p>POPRAWNE: </p>';
+        printArr($_SESSION["guessed"]);
+        echo '</div>';
+        
+        echo '<div class="message">';
+        echo '<p>NIEPOPRAWNE: </p>';
+        printArr($_SESSION["wrong"]);
+        echo '</div>';
+        
+        echo '<div style = "clear:both"></div>';
 
         printArr($_SESSION);
     ?>
