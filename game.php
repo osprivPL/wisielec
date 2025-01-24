@@ -14,7 +14,7 @@
     }
 
     if($_SESSION["_actualAttempts"] != $_SESSION["_attempts"]){
-        $_SESSION["_actualAttempts"]++;
+//        $_SESSION["_actualAttempts"]++;
     }
 
     if ($_SESSION["_attempts"]-1 == $_SESSION["_actualAttempts"] || $_SESSION["win"]){
@@ -37,7 +37,7 @@
     <h1>WISIELEC</h1>
     <?php
         echo '<form>';
-            echo '<input type="text" id="tbx" placeholder="Enter text here...">';
+            echo '<input style="text-align: center" type="text" class="tbx" placeholder="Enter text here...">';
         echo '</form>';
         printArr($_SESSION);
     ?>
