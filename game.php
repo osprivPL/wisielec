@@ -8,22 +8,22 @@
     if (!isset($_SESSION["_actualAttempts"])){
         $_SESSION["guessed"] = array();
         $_SESSION["wrong"] = array();
-        $wordLength = intval($_POST["howLong"]);
+        $wordLength = $_POST["howLong"];
         $_SESSION["_actualAttempts"] = -1;
-        $_SESSION["_actualString"] = str_repeat("_", $wordLength);
+        $_SESSION["_actualString"] = str_repeat("_", intval($wordLength));
         $_SESSION["_attempts"] = $_POST["attempts"];
-        $_SESSION["_win"] = FALSE;
+        $_SESSION["_win"] = 0;
         $_SESSION["_correctAns"] = generateAns($wordLength);
     }
 
     if ($_SESSION["_correctAns"] == $_SESSION["_actualString"]){
-        $_SESSION["_win"] = TRUE;
+        $_SESSION["_win"] = 1;
     }
 
     if($_SESSION["_actualAttempts"] != $_SESSION["_attempts"]){
         $_SESSION["_actualAttempts"]++;
     }
-    if ($_SESSION["_attempts"]-1 == $_SESSION["_actualAttempts"] || $_SESSION["win"]){
+    if ($_SESSION["_attempts"] == $_SESSION["_actualAttempts"] || $_SESSION["win"] == 1){
         header("Location: end.php");
         exit();
     }
@@ -54,6 +54,7 @@
             }
 
         }
+        $_POST["guess"] = '';
         $guess= '';
     }
 ?>
@@ -99,6 +100,6 @@
 
         printArr($_SESSION);
     ?>
-    
 </body>
+
 </html>
