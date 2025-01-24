@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require "scripts/php/printArr.php";
 //    error_reporting(E_ERROR | E_PARSE);
 ?>
 <html lang="pl">
@@ -28,6 +29,8 @@
             echo '<div class="message">PRZEGRANA!</div>';
         }
         echo "<div class='message'>Poprawna odpowiedź:".$_SESSION["_correctAns"]."</div>";
+        
+        printArr($_SESSION);
     ?>
 
 
