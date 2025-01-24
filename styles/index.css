@@ -9,7 +9,7 @@
     background-color: #f0f0f0;
     color: #333;
 }
-#lblSuprise{
+#lblSurprise{
     display: block;
     position: relative;
     padding-left: 35px;
@@ -21,17 +21,17 @@
     -ms-user-select: none;
     user-select: none;
 }
-#lblSuprise input{
+#lblSurprise input{
     position:absolute;
     opacity: 0;
     cursor: pointer;
     height: 0;
     width: 0;
 }
-#lblSuprise :checked ~ #suprise{
+#lblSurprise :checked ~ #surprise{
     background-color: #2196F3;
 }
-#suprise{
+#surprise{
     position:absolute;
     
     height: 25px;

@@ -12,6 +12,7 @@
     
     <link rel ="stylesheet" href = "styles/index.css">
     <link rel ="stylesheet" href = "styles/style.css">
+    <script src = "scripts/js/surprise.js"></script>
     <title>index</title>
 </head>
 <body>
@@ -21,7 +22,7 @@
         <form method = "post" action = "game.php">
             <label for ="howLong">Długość słowa:</label><input type="number" name = "howLong" id = "howLong" value = "5" min = "3" max = "11"><br>
             <label for ="attempts">Ilość prób: </label><input type="number" name = "attempts" id = "attempts" value = "5" min = "3" max = "32"><br>
-            <label for = "suprise" id="lblSuprise">Zaskocz mnie</label><input type ="checkbox" name="suprise" id = "suprise"><br>
+            <label for = "surprise" id="lblSurprise">Zaskocz mnie</label><input type ="checkbox" name="surprise" id = "surprise" onchange="isChecked()"><br>
             <input type = "submit" id ="send" value = "GRAJ">
         </form>
         </div>
