@@ -19,7 +19,7 @@
     <h1>WISIELEC</h1>
     <div class="message">Gra zakończona!</div>
     <?php
-        if ($_SESSION["_win"]){
+        if ($_SESSION["_win"] == 1){
             echo '<div class="message">';
                 echo "Udało ci się wygrać w ".$_SESSION["_actualAttempts"]." próbach!";
             echo '</div>';

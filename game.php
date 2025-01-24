@@ -16,8 +16,16 @@
         $_SESSION["_correctAns"] = generateAns($wordLength);
     }
 
+    if ($_SESSION["_correctAns"] == $_SESSION["_actualString"]){
+        $_SESSION["_win"] = TRUE;
+    }
+
     if($_SESSION["_actualAttempts"] != $_SESSION["_attempts"]){
         $_SESSION["_actualAttempts"]++;
+    }
+    if ($_SESSION["_attempts"]-1 == $_SESSION["_actualAttempts"] || $_SESSION["win"]){
+        header("Location: end.php");
+        exit();
     }
 
 
@@ -47,11 +55,6 @@
 
         }
         $guess= '';
-    }
-
-    if ($_SESSION["_attempts"]-1 == $_SESSION["_actualAttempts"] || $_SESSION["win"]){
-        header("Location: end.php");
-        exit();
     }
 ?>
 <html lang="pl">
