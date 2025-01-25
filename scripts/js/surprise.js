@@ -8,7 +8,7 @@ function isChecked() {
             howLong.readOnly = true;
             attempts.value = Math.floor(Math.random() * 30) + 3;
             attempts.readOnly = true;
-        }
+        }while (attemptsValue < howLongValue);
     } else {
         howLong.value = 5;
         howLong.readOnly = false;
