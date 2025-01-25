@@ -1,13 +1,18 @@
 function isChecked() {
-    if (document.getElementById("surprise").checked){
-        document.getElementById("howLong").value = Math.floor(Math.random() * 8) + 4;
-        document.getElementById("howLong").readOnly = true;
-        document.getElementById("attempts").value = Math.floor(Math.random() * 30) + 3;
-        document.getElementById("attempts").readOnly = true;
+    const attempts = document.getElementById("attempts");
+    const checkBox = document.getElementById("surprise");
+    const howLong = document.getElementById("howLong");
+    if (checkBox.checked){
+        do {
+            howLong.value = Math.floor(Math.random() * 8) + 4;
+            howLong.readOnly = true;
+            attempts.value = Math.floor(Math.random() * 30) + 3;
+            attempts.readOnly = true;
+        }
     } else {
-        document.getElementById("howLong").value = 5;
-        document.getElementById("howLong").readOnly = false;
-        document.getElementById("attempts").value = 5;
-        document.getElementById("attempts").readOnly = false;
+        howLong.value = 5;
+        howLong.readOnly = false;
+        howLong.value = 5;
+        howLong.readOnly = false;
     }
 }

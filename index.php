@@ -22,7 +22,7 @@
         <form method = "post" action = "game.php">
             <label for ="howLong">Długość słowa:</label><input style="text-align: center" type="number" name = "howLong" id = "howLong" class="tbx" value = "5" min = "3" max = "11"><br>
             <label for ="attempts">Ilość prób: </label><input style="text-align: center" type="number" name = "attempts" id = "attempts" class="tbx" value = "5" min = "3" max = "32"><br>
-            <label for = "surprise" id="lblSurprise">Zaskocz mnie</label><input type ="checkbox" name="surprise" id = "surprise" onchange="isChecked()"><br>
+            <label for = "surprise" id="lblSurprise">Zaskocz mnie</label><input type ="checkbox" name="surprise" id = "surprise" onclick="isChecked()"><br>
             <input type = "submit" id ="send" value = "GRAJ">
         </form>
         </div>
