@@ -70,7 +70,7 @@
     <link rel ="stylesheet" href = "styles/game.css">
     <link rel ="stylesheet" href = "styles/style.css">
     
-    <title>game</title>
+    <title>WISIELEC</title>
 </head>
 <body>
     <h1>WISIELEC</h1>
@@ -101,7 +101,7 @@
         
         echo '<div style = "clear:both"></div>';
 
-        printArr($_SESSION);
+//        printArr($_SESSION); podglad danych z sesji nie potrzebny, a funkcja została zmieniona
     ?>
 </body>
 <script>

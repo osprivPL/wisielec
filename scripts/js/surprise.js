@@ -6,7 +6,7 @@ function isChecked() {
         do {
             howLong.value = Math.floor(Math.random() * 8) + 4;
             howLong.readOnly = true;
-            attempts.value = Math.floor(Math.random() * 30) + 3;
+            attempts.value = Math.floor(Math.random() * 21) + 3;
             attempts.readOnly = true;
         }while (attempts.value < howLong.value);
     } else {

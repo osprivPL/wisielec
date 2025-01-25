@@ -12,7 +12,7 @@
     <meta name="author" content="Michał Ożdżyński">
     <link rel="stylesheet" href="styles/style.css">
 <!--    <link rel="stylesheet" href ="styles/end.css">-->
-    <title>end</title>
+    <title>WISIELEC</title>
 
 </head>
 <body>
