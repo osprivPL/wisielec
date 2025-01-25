@@ -12,7 +12,7 @@ function isChecked() {
     } else {
         howLong.value = 5;
         howLong.readOnly = false;
-        howLong.value = 5;
-        howLong.readOnly = false;
+        attempts.value = 5;
+        attempts.readOnly = false;
     }
 }
