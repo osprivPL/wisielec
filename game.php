@@ -75,6 +75,7 @@
 <body>
     <h1>WISIELEC</h1>
     <?php
+        echo '<h2>POZOSTAŁO '. $_SESSION["_attempts"] - $_SESSION["_actualAttempts"] .' PRÓB</h2>';
         echo '<form method = "post">';
             echo '<h3>';
                 for ($i = 0; $i < strlen($_SESSION["_actualString"]); $i++) {
