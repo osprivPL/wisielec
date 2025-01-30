@@ -1,6 +1,6 @@
 <?php 
     session_start();
-//    error_reporting(E_ERROR | E_PARSE);
+    error_reporting(E_ERROR | E_PARSE);
 
     require "scripts/php/generateAns.php";
     require "scripts/php/printArr.php";
@@ -102,7 +102,7 @@
         
         echo '<div style = "clear:both"></div>';
 
-//        printArr($_SESSION); podglad danych z sesji nie potrzebny, a funkcja została zmieniona
+        printSession();
     ?>
 </body>
 <script>

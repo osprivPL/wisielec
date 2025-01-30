@@ -6,3 +6,9 @@ function printArr(&$arr): void
         echo $value.' ';
     }
 }
+
+function printSession(): void{
+    foreach ($_SESSION  as $key => $value) {
+        echo $key.' '.$value.'<br>';
+    }
+}

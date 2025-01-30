@@ -1,7 +1,7 @@
 <?php
     session_start();
     require "scripts/php/printArr.php";
-//    error_reporting(E_ERROR | E_PARSE);
+    error_reporting(E_ERROR | E_PARSE);
 ?>
 <html lang="pl">
 <head>
